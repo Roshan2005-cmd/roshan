@@ -13,30 +13,26 @@ import java.util.Random;
 
 public class CardTrick {
     public static void main(String[] args) {
-        // Create an array of 7 random cards
         Card[] magicHand = new Card[7];
         Random random = new Random();
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
 
         for (int i = 0; i < magicHand.length; i++) {
             Card c = new Card();
-            c.setValue(random.nextInt(13) + 1); // 1-13
+            c.setValue(random.nextInt(13) + 1);
             c.setSuit(suits[random.nextInt(suits.length)]);
             magicHand[i] = c;
         }
 
-        // Display the magic hand for testing (optional)
         System.out.println("Magic Hand:");
         for (Card c : magicHand) {
             System.out.println(c.getValue() + " of " + c.getSuit());
         }
-
-        // Hard-coded lucky card
+        
         Card luckyCard = new Card();
-        luckyCard.setValue(7); // Choose any value you like
-        luckyCard.setSuit("Hearts"); // Choose any suit you like
+        luckyCard.setValue(1);
+        luckyCard.setSuit("Spades");
 
-        // Search for the lucky card in the magic hand
         boolean found = false;
         for (Card c : magicHand) {
             if (c.getValue() == luckyCard.getValue() &&
